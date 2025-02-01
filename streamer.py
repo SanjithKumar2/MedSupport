@@ -48,7 +48,7 @@ def stream_vitals():
     topic = "patient_vitals"
 
     while True:
-        patient_id = uuid.uuid4()
+        patient_id = str(uuid.uuid4())
         vitals = generate_vitals(patient_id)
         logger.info(f"Generated vitals for patient {patient_id}")
         producer.send(topic,value= vitals)
